@@ -1,56 +1,51 @@
-import React,{ Component, Fragment } from "react";
+import React, {Component, Fragment} from 'react';
 import classnames from 'classnames';
 import './styles.css';
+import {connect} from 'react-redux';
 
-class RightPanel extends Component{
-constructor(props){
-    super(props)
-}
+class RightPanel extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-render(){
+  render() {
     return (
-        <Fragment>
+      <Fragment>
         <div className={'chatBox'}>
-            
-        <div className={classnames('chats')}>
-        <img src={'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'} width={'26px'} height={'24px'} style={{borderRadius:'50%'}}/>
-        <div className={'chats-msg'}>Hello</div>
-        </div>
-
-        <div className={classnames('chats', 'chat-right')}>
-        <img src={'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'} width={'26px'} height={'24px'} style={{borderRadius:'50%'}}/>
-        <div className={classnames('chats-msg', 'chat-msg-right')}>Hello Right</div>
-        </div>
-
-        <div className={classnames('chats')}>
-        <img src={'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'} width={'26px'} height={'24px'} style={{borderRadius:'50%'}}/>
-        <div className={'chats-msg'}>Hello</div>
-        </div>
-
-        <div className={classnames('chats', 'chat-right')}>
-        <img src={'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'} width={'26px'} height={'24px'} style={{borderRadius:'50%'}}/>
-        <div className={classnames('chats-msg', 'chat-msg-right')}>Hello Right</div>
-        </div>
-
-        <div className={classnames('chats')}>
-        <img src={'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'} width={'26px'} height={'24px'} style={{borderRadius:'50%'}}/>
-        <div className={'chats-msg'}>Hello</div>
-        </div>
-
-        <div className={classnames('chats', 'chat-right')}>
-        <img src={'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'} width={'26px'} height={'24px'} style={{borderRadius:'50%'}}/>
-        <div className={classnames('chats-msg', 'chat-msg-right')}>Hello RightHello RightHello RightHello RightHello RightHello RightHello RightHello RightHello RightHello RightHello RightHello Right</div>
-        </div>
-
+          {this.props.applyCodeChanges.map((chat, index) => {
+            return (
+              <div
+                className={
+                  index % 2 == 0 ? 'chats' : classnames('chats', 'chat-right')
+                }>
+                <img
+                  src={
+                    'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
+                  }
+                  width={'26px'}
+                  height={'24px'}
+                  style={{borderRadius: '50%'}}
+                />
+                <div className={'chats-msg'}>
+                  {!chat.code ? 'false' : 'true'}
+                </div>
+              </div>
+            );
+          })}
         </div>
         <div className={'messageBox'}>
-        <div className={'Rectangle-3'}>
-        <p className={'Type-message-here'}>Type message here…</p>
+          <div className={'Rectangle-3'}>
+            <p className={'Type-message-here'}>Type message here…</p>
+          </div>
         </div>
-        </div>
-        </Fragment>
-    )
-}
+      </Fragment>
+    );
+  }
 }
 
-export default RightPanel;
+const mapStateToProps = (state) => state;
+
+export default connect(
+  mapStateToProps,
+  null,
+)(RightPanel);

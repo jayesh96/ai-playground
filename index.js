@@ -1,13 +1,20 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { render } from 'react-dom';
+import {render} from 'react-dom';
 // eslint-disable-next-line import/no-unresolved, import/extensions
 /* eslint-enable import/no-extraneous-dependencies */
 // Using with webpack
-import App from './App'
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import rootReducer from './reducers';
+import App from './App';
 
+const store = createStore(rootReducer)
+store.subscribe(() => console.log(store.getState(),"----------_____@"))
 // eslint-disable-next-line react/no-multi-comp
 render(
-    <App />,
-    document.getElementById('root')
+  <Provider store={store}>
+  <App />
+  </Provider>,
+  document.getElementById('root'),
 );

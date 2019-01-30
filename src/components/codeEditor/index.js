@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import safeEval from 'safe-eval'
+import safeEval from 'safe-eval';
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -11,14 +11,11 @@ class CodeEditor extends Component {
   }
 
   onChange = (newValue, e) => {
-    console.log('onChange', newValue, e); // eslint-disable-line no-console
-    this.props.onCodeChange()
+    this.props.onCodeChange();
     this.setState({code: newValue});
   };
 
   editorDidMount = (editor) => {
-    // eslint-disable-next-line no-console
-    console.log('editorDidMount', editor, editor.getValue(), editor.getModel());
     this.editor = editor;
   };
 
@@ -42,7 +39,7 @@ class CodeEditor extends Component {
       automaticLayout: true,
     };
     return (
-      <div style={{height:'100vH'}}>
+      <div style={{height: '100vH'}}>
         <MonacoEditor
           language="javascript"
           theme="vs-dark"

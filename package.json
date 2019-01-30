@@ -32,6 +32,8 @@
     "react": "~16.6.3",
     "react-dom": "^16.6.3",
     "react-monaco-editor": "latest",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
     "reflexbox": "^3.0.1",
     "safe-eval": "^0.4.1"
   }
