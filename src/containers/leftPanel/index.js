@@ -11,15 +11,16 @@ class LeftPanel extends Component {
     super(props);
     this.state = {
       isCodeUpdated: false,
+      code: '',
     };
     this.onCodeChange = this.onCodeChange.bind(this);
   }
 
-  onCodeChange() {
-    this.setState({isCodeUpdated: true});
+  onCodeChange(code) {
+    this.setState({isCodeUpdated: true, code: code});
   }
   render() {
-    const {isCodeUpdated} = this.state;
+    const {isCodeUpdated, code} = this.state;
     return (
       <Flex column>
         <div className={'tabs'}>
@@ -33,8 +34,10 @@ class LeftPanel extends Component {
             className={
               isCodeUpdated ? 'applyChangeActive' : 'applyChangeDisabled'
             }
+            disabled={isCodeUpdated?false:true}
             onClick={() => {
-              this.props.onApplyChangesClicked(isCodeUpdated);
+              this.setState({isCodeUpdated:false})
+              this.props.onApplyChangesClicked(code);
             }}>
             Apply Changes
           </button>{' '}

@@ -27,7 +27,7 @@ class RightPanel extends Component {
                   style={{borderRadius: '50%'}}
                 />
                 <div className={'chats-msg'}>
-                  {!chat.code ? 'false' : 'true'}
+                  {chat.code}
                 </div>
               </div>
             );

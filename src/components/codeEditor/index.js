@@ -11,8 +11,7 @@ class CodeEditor extends Component {
   }
 
   onChange = (newValue, e) => {
-    this.props.onCodeChange();
-    this.setState({code: newValue});
+    this.props.onCodeChange(newValue);
   };
 
   editorDidMount = (editor) => {
@@ -30,7 +29,7 @@ class CodeEditor extends Component {
   };
 
   render() {
-    const {code} = this.state;
+    const {code} = this.props;
     const options = {
       selectOnLineNumbers: true,
       roundedSelection: false,
