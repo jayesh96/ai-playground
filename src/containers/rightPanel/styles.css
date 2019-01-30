@@ -1,0 +1,74 @@
+
+.chatBox{
+    width: 528px;
+    height: 392px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.08);
+    background-color: #1f1f1f;
+    margin: 0 auto;
+    overflow: auto;
+    display: flex;
+    flex-direction: column
+}
+.messageBox{
+    height:72px;
+    width: 528px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.08);
+    background-color: #1f1f1f;
+    margin: 8px auto
+}
+
+.Rectangle-3 {
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    background-color: #1f1f1f;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left:33px;
+}
+.Type-message-here {
+    width: 136px;
+    height: 18px;
+    font-family: QuickSand;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #a9a9a9;
+}
+
+.chats{
+    min-height:50px;
+    margin:22px;
+    color:white;
+    display: flex;
+}
+
+.chat-right{
+   flex-direction: row-reverse;
+}
+
+.chat-msg-right{
+    margin-right:20px 
+}
+.chats-msg{
+    height:100%;
+    width: 272px;
+    margin-left:20px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    padding: 10px;
+    font-family: Quicksand;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #d3d3d3;
+    background-color: #404040;
+}
