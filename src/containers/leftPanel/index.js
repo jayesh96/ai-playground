@@ -54,8 +54,8 @@ const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onApplyChangesClicked: (code) => {
-      dispatch(applyCodeChanges(code));
+    onApplyChangesClicked: (payload) => {
+      dispatch(applyCodeChanges(payload));
     },
   };
 };

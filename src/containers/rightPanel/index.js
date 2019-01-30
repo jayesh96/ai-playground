@@ -2,36 +2,39 @@ import React, {Component, Fragment} from 'react';
 import classnames from 'classnames';
 import './styles.css';
 import {connect} from 'react-redux';
+import safeEval from 'safe-eval';
+
+const val = 'Hello';
 
 class RightPanel extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      code: '',
+    };
+  }
+
+  componentWillReceiveProps(nextProps, prevState) {
+    this.setState({code: `(${nextProps.code}(${5}))`});
   }
 
   render() {
     return (
       <Fragment>
         <div className={'chatBox'}>
-          {this.props.applyCodeChanges.map((chat, index) => {
-            return (
-              <div
-                className={
-                  index % 2 == 0 ? 'chats' : classnames('chats', 'chat-right')
-                }>
-                <img
-                  src={
-                    'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
-                  }
-                  width={'26px'}
-                  height={'24px'}
-                  style={{borderRadius: '50%'}}
-                />
-                <div className={'chats-msg'}>
-                  {chat.code}
-                </div>
-              </div>
-            );
-          })}
+          {this.props.code.length > 0 ? (
+            <div className={'chats'}>
+              <img
+                src={
+                  'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
+                }
+                width={'26px'}
+                height={'24px'}
+                style={{borderRadius: '50%'}}
+              />
+              <div className={'chats-msg'}>{safeEval(this.state.code)}</div>
+            </div>
+          ) : null}
         </div>
         <div className={'messageBox'}>
           <div className={'Rectangle-3'}>
@@ -43,7 +46,9 @@ class RightPanel extends Component {
   }
 }
 
-const mapStateToProps = (state) => state;
+const mapStateToProps = (state) => {
+  return {code: state.applyCodeChanges.get('code')};
+};
 
 export default connect(
   mapStateToProps,

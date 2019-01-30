@@ -10,8 +10,6 @@ import rootReducer from './reducers';
 import App from './App';
 
 const store = createStore(rootReducer)
-store.subscribe(() => console.log(store.getState(),"----------_____@"))
-// eslint-disable-next-line react/no-multi-comp
 render(
   <Provider store={store}>
   <App />
