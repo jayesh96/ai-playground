@@ -12,7 +12,7 @@ class RightPanel extends Component {
     this.state = {
       code: '',
       message: '',
-      messageCount:0
+      messageCount: 0,
     };
     this.messageSubmit = this.messageSubmit.bind(this);
   }
@@ -24,10 +24,9 @@ class RightPanel extends Component {
   messageSubmit(e) {
     var code = e.keyCode ? e.keyCode : e.which;
     if (code == 13) {
-      this.setState({messageCount:this.state.messageCount+1,message: ''});
+      this.setState({messageCount: this.state.messageCount + 1, message: ''});
       this.props.addMessage(e.target.value);
       this.evaluateCode(this.state.code, e.target.value);
-
     }
   }
 
@@ -35,12 +34,12 @@ class RightPanel extends Component {
     var regex = /^[0-9]+$/;
     try {
       if (message.match(regex)) {
-        let value = safeEval(`(${code})(${message})`);
+        let value = eval(`(${code})(${message})`);
         this.props.addMessage(value);
         return value;
       } else {
         const _message = message.replace(/"/g, "'");
-        let value = safeEval(`(${code})("${_message}")`);
+        let value = eval(`(${code})("${_message}")`);
         this.props.addMessage(value);
         return value;
       }
@@ -56,7 +55,7 @@ class RightPanel extends Component {
     return (
       <Fragment>
         <div className={'chatBox'}>
-          {this.props.code.length > 0 && messageCount >0 ? (
+          {this.props.code.length > 0 && messageCount > 0 ? (
             <Fragment>
               {messages.map((msg, index) => {
                 return (
@@ -88,8 +87,8 @@ class RightPanel extends Component {
               <input
                 type="text"
                 value={message}
-                onChange={(e)=>{
-                  this.setState({'message':e.target.value})
+                onChange={(e) => {
+                  this.setState({message: e.target.value});
                 }}
                 placeholder="Your Message Here"
                 className={'Type-message-here'}
