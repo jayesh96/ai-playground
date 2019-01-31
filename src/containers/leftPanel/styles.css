@@ -49,8 +49,8 @@
 }
 
 .applyChangeDisabled{
-    float: right;
     width: 132px;
+    display: inline-block;
     color: rgba(255,255,255,0.5);
     border-color: #282828;
     height: 24px;
@@ -59,8 +59,8 @@
 }
 
 .applyChangeActive{
-    float: right;
     width: 132px;
+    display: inline-block;
     outline: none;
     cursor: pointer;
     color: rgba(255,255,255,0.5);

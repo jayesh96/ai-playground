@@ -43,6 +43,7 @@ class CodeEditor extends Component {
           language="javascript"
           theme="vs-dark"
           value={code}
+          defaultValue = {this.state.code}
           options={options}
           onChange={this.onChange}
           editorDidMount={this.editorDidMount}

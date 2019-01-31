@@ -43,10 +43,11 @@ class RightPanel extends Component {
         return value;
       }
     } catch (err) {
-      return 'undefined';
+      this.props.addMessage('Oops! '+err.toString());
+      return 'NIL';
     }
   }
-  // function square(b) { return b * b; }
+  
   render() {
     const {code, message} = this.state;
     const {messages} = this.props;
@@ -95,10 +96,10 @@ class RightPanel extends Component {
     );
   }
 }
-
+ 
 const mapStateToProps = (state) => {
   return {code: state.applyCodeChanges.get('code'), messages: state.addMessage};
-};
+}; 
 
 const mapDispatchToProps = (dispatch) => {
   return {
