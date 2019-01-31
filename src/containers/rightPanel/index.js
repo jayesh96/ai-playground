@@ -1,10 +1,10 @@
 import React, {Component, Fragment} from 'react';
-// import classnames from 'classnames';
+import classnames from 'classnames';
 import './styles.css';
 import {connect} from 'react-redux';
 import safeEval from 'safe-eval';
 // import LoadingDots from '../../components/loadingDots';
-
+import {addMessage} from './actions';
 
 class RightPanel extends Component {
   constructor(props) {
@@ -24,23 +24,22 @@ class RightPanel extends Component {
     var code = e.keyCode ? e.keyCode : e.which;
     if (code == 13) {
       this.setState({message: e.target.value});
+      this.props.addMessage(e.target.value);
+      this.evaluateCode(this.state.code, e.target.value)
     }
   }
 
   evaluateCode(code, message) {
     var regex = /^[0-9]+$/;
-    console.log("############")
-    window.eval(`(${code})(${message})`)
-    console.log("############")
     try {
       if (message.match(regex)) {
         let value = safeEval(`(${code})(${message})`);
-        console.log(value, '---1');
+        this.props.addMessage(value);
         return value;
       } else {
         const _message = message.replace(/"/g, "'");
         let value = safeEval(`(${code})("${_message}")`);
-        console.log(value, '---2');
+        this.props.addMessage(value);
         return value;
       }
     } catch (err) {
@@ -50,23 +49,34 @@ class RightPanel extends Component {
   // function square(b) { return b * b; }
   render() {
     const {code, message} = this.state;
+    const {messages} = this.props;
     return (
       <Fragment>
         <div className={'chatBox'}>
           {this.props.code.length > 0 && message.length ? (
-            <div className={'chats'}>
-              <img
-                src={
-                  'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
-                }
-                width={'26px'}
-                height={'24px'}
-                style={{borderRadius: '50%'}}
-              />
-              <div className={'chats-msg'}>
-                {this.evaluateCode(code, message)}
-              </div>
-            </div>
+            <Fragment>
+              {messages.map((msg, index) => {
+                return (
+                  <div
+                    className={
+                      index % 2 === 0
+                        ? 'chats'
+                        : classnames('chats', 'chat-right')
+                    }
+                    key={index}>
+                    <img
+                      src={
+                        'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
+                      }
+                      width={'26px'}
+                      height={'24px'}
+                      style={{borderRadius: '50%'}}
+                    />
+                    <div className={'chats-msg'}>{msg.message}</div>
+                  </div>
+                );
+              })}
+            </Fragment>
           ) : null}
         </div>
         <div className={'messageBox'}>
@@ -87,10 +97,18 @@ class RightPanel extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {code: state.applyCodeChanges.get('code')};
+  return {code: state.applyCodeChanges.get('code'), messages: state.addMessage};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addMessage: (payload) => {
+      dispatch(addMessage(payload));
+    },
+  };
 };
 
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(RightPanel);

@@ -10,6 +10,8 @@ import rootReducer from './reducers';
 import App from './App';
 
 const store = createStore(rootReducer)
+store.subscribe(() => console.log(store.getState()))
+
 render(
   <Provider store={store}>
   <App />
