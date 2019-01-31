@@ -75,3 +75,11 @@
     color: #d3d3d3;
     background-color: #404040;
 }
+
+.chat-msg-loading{
+    width: 50px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    padding: 10px;
+    background-color: #404040;
+}

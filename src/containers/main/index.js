@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Flex, Box} from 'reflexbox';
 import RightPanel from '../rightPanel';
 import LeftPanel from '../leftPanel';
+import Header from '../../components/header';
 import './styles.css';
 
 class Main extends Component {
@@ -13,18 +14,14 @@ class Main extends Component {
     return (
       <Flex column>
         <Box w={1}>
-          <div className={'header'}>
-            <div className={'header-title'}>
-              AI Playground
-            </div>
-          </div>
+          <Header title={'AI Playground'}/>
         </Box>
         <Box w={1}>
           <Flex>
             <Box w={2 / 5} className={'ide'}>
               <LeftPanel/> 
             </Box>
-            <Box w={3 / 5} style={{display:'flex',flexDirection:'column', justifyContent:'center'}}>
+            <Box w={3 / 5} className={'bot'}>
             <RightPanel/>
             </Box>
           </Flex>

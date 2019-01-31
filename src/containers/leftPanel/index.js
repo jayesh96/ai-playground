@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import CodeEditor from '../../components/codeEditor';
 import {Flex, Box} from 'reflexbox';
-import classnames from 'classnames';
 import {connect} from 'react-redux';
 import {applyCodeChanges} from './actions';
+import Tabs from '../../components/tabs';
+import Image from '../../components/image';
+import Button from '../../components/button';
+
 import './styles.css';
 
 class LeftPanel extends Component {
@@ -16,68 +19,69 @@ class LeftPanel extends Component {
       activeTab: 2,
     };
     this.onCodeChange = this.onCodeChange.bind(this);
+    this.changeActiveTab = this.changeActiveTab.bind(this);
+    this.applyChangeButtonClick = this.applyChangeButtonClick.bind(this);
   }
 
   onCodeChange(code) {
     this.setState({isCodeUpdated: true, code: code});
   }
-  
+
+  changeActiveTab(tabIndex) {
+    this.setState({activeTab: tabIndex});
+  }
+
+  applyChangeButtonClick() {
+    this.setState({isCodeUpdated: false});
+    this.props.onApplyChangesClicked(this.state.code);
+  }
+
+  tabsContainer() {
+    const {tabsCount, activeTab} = this.state;
+    return (
+      <Fragment>
+        <Tabs
+          tabsCount={tabsCount}
+          activeTab={activeTab}
+          changeActiveTab={this.changeActiveTab}
+        />
+        <span
+          className={'addTab'}
+          onClick={() =>
+            this.setState({
+              tabsCount: [
+                ...this.state.tabsCount,
+                `Tab${tabsCount.length + 1}`,
+              ],
+            })
+          }>
+          <Image
+            classname={'addTabIcon'}
+            src="../../../public/icons/shape@3x.png"
+          />
+        </span>
+      </Fragment>
+    );
+  }
   render() {
-    const {isCodeUpdated, code, tabsCount, activeTab} = this.state;
+    const {isCodeUpdated} = this.state;
     return (
       <Flex column>
         <div className={'tabs'}>
-          {tabsCount.map((tab, index) => {
-            return (
-              <button
-                className={classnames(
-                  'tabsButton',
-                  activeTab === index ? 'activeTab' : '',
-                )}
-                onClick={() => {
-                  this.setState({activeTab: index});
-                }}>
-                <div className={'tabsButtonText'}>{tab}</div>
-              </button>
-            );
-          })}
-
-          <span
-            style={{cursor: 'pointer', padding: '8px'}}
-            onClick={() =>
-              this.setState({
-                tabsCount: [
-                  ...this.state.tabsCount,
-                  `Tab${tabsCount.length + 1}`,
-                ],
-              })
-            }>
-            <img
-              style={{height: '8px', width: '8px'}}
-              src="../../../public/icons/shape@3x.png"
-            />
-          </span>
+          {this.tabsContainer()}
           <span style={{float: 'right'}}>
-            <button
-              className={
+            <Button
+              classname={
                 isCodeUpdated ? 'applyChangeActive' : 'applyChangeDisabled'
               }
               disabled={isCodeUpdated ? false : true}
-              onClick={() => {
-                this.setState({isCodeUpdated: false});
-                this.props.onApplyChangesClicked(code);
-              }}>
-              <img
-                src="../../../public/icons/refresh@3x.png"
-                style={{
-                  float: 'left',
-                  marginRight: '0.5em',
-                  width: '11px',
-                  height: '12px',
-                }}
+              applyChangeButtonClick={this.applyChangeButtonClick}>
+              <Image
+                src={'../../../public/icons/refresh@3x.png'}
+                classname={'applyChangeButtonIcon'}
               />
               Apply Changes
-            </button>
+            </Button>
           </span>
         </div>
         <div className={'editorContainer'}>

@@ -2,9 +2,9 @@ import React, {Component, Fragment} from 'react';
 import classnames from 'classnames';
 import './styles.css';
 import {connect} from 'react-redux';
-import safeEval from 'safe-eval';
-// import LoadingDots from '../../components/loadingDots';
 import {addMessage} from './actions';
+import LoadingDots from '../../components/loadingDots';
+import '../../scripts/main';
 
 class RightPanel extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class RightPanel extends Component {
       code: '',
       message: '',
       messageCount: 0,
+      loading: false,
     };
     this.messageSubmit = this.messageSubmit.bind(this);
   }
@@ -24,34 +25,41 @@ class RightPanel extends Component {
   messageSubmit(e) {
     var code = e.keyCode ? e.keyCode : e.which;
     if (code == 13) {
-      this.setState({messageCount: this.state.messageCount + 1, message: ''});
+      this.setState({
+        messageCount: this.state.messageCount + 1,
+        message: '',
+        loading: true,
+      });
       this.props.addMessage(e.target.value);
       this.evaluateCode(this.state.code, e.target.value);
     }
   }
 
-  evaluateCode(code, message) {
+  async evaluateCode(code, message) {
     var regex = /^[0-9]+$/;
     try {
       if (message.match(regex)) {
-        let value = eval(`(${code})(${message})`);
+        let value = await eval(`(${code})(${message})`);
         this.props.addMessage(value);
+        this.setState({loading: false});
         return value;
       } else {
         const _message = message.replace(/"/g, "'");
-        let value = eval(`(${code})("${_message}")`);
+        let value = await eval(`(${code})("${_message}")`);
         this.props.addMessage(value);
+        this.setState({loading: false});
         return value;
       }
     } catch (err) {
       this.props.addMessage('Oops! ' + err.toString());
+      this.setState({loading: false});
       return 'NIL';
     }
   }
 
   render() {
-    const {messageCount, message} = this.state;
-    const {messages} = this.props;
+    const {messageCount, message, loading} = this.state;
+    const messages = this.props.messages;
     return (
       <Fragment>
         <div className={'chatBox'}>
@@ -79,6 +87,21 @@ class RightPanel extends Component {
                 );
               })}
             </Fragment>
+          ) : null}
+          {loading ? (
+            <div className={classnames('chats', 'chat-right')}>
+              <img
+                src={
+                  'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
+                }
+                width={'26px'}
+                height={'24px'}
+                style={{borderRadius: '50%'}}
+              />
+              <div className={'chat-msg-loading'}>
+                <LoadingDots />
+              </div>
+            </div>
           ) : null}
         </div>
         <div className={'messageBox'}>
