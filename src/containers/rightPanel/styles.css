@@ -29,8 +29,11 @@
     padding-left:33px;
 }
 .Type-message-here {
-    width: 136px;
-    height: 18px;
+    padding: 8px 16px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    width: 100%;
     font-family: QuickSand;
     font-size: 14px;
     font-weight: normal;

@@ -20,7 +20,7 @@ class CodeEditor extends Component {
 
   changeEditorValue = () => {
     if (this.editor) {
-      this.editor.setValue('// code changed! \n');
+      this.setState('// code changed! \n');
     }
   };
 

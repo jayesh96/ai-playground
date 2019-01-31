@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 /* eslint-enable import/no-extraneous-dependencies */
 import Main from './src/containers/main';
 // Using with webpack
-
 class App extends Component {
     constructor(props) {
         super(props);
