@@ -19,8 +19,6 @@ $ npm run build(for production)
 
 ### Components and Containers
 
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
-
 |  | |
 | ------ | ------ |
 | Components | Button,Chat,codeEditor,Header, Image, loadingDots,tabs |
@@ -42,5 +40,6 @@ Right Panel is used to input some text which gets reflected in chat box.The Load
 # Demo
 See [Video Here](https://drive.google.com/file/d/1oU_AUTujztoFzDru95HIeckw7LKJfXdN/view)
 
+The Project is live at [Live Demo](https://jayesh96.github.io/ai-playground/)
 
 
