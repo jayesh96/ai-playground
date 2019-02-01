@@ -4,10 +4,6 @@ import React, {Component} from 'react';
 import Main from './containers/main';
 // Using with webpack
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
     render() {
         return <Main />;
     }

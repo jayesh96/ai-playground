@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import MonacoEditor from 'react-monaco-editor';
-import safeEval from 'safe-eval';
 
 class CodeEditor extends Component {
   constructor(props) {

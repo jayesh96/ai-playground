@@ -4,9 +4,6 @@ import classnames from 'classnames';
 import "./styles.css"
 
 class ChatBox extends Component{
-    constructor(props){
-        super(props)
-    }
 
     render(){
         const {code,messageCount,messages,loading} = this.props
@@ -27,6 +24,7 @@ class ChatBox extends Component{
                       src={
                         'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
                       }
+                      alt=''
                       width={'26px'}
                       height={'24px'}
                       style={{borderRadius: '50%'}}
@@ -47,6 +45,7 @@ class ChatBox extends Component{
                 src={
                   'http://images.clipartpanda.com/user-clipart-acspike_male_user_icon.png'
                 }
+                alt=''
                 width={'26px'}
                 height={'24px'}
                 style={{borderRadius: '50%'}}

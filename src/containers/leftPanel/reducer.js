@@ -1,5 +1,5 @@
 import {APPLY_CODE_CHANGES} from './constants';
-import {fromJS, Map as iMap} from 'immutable';
+import {fromJS} from 'immutable';
 
 const initialState = fromJS({
   code:''

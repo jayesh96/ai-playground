@@ -3,7 +3,7 @@ import './styles.css'
 
 export const Image = ({src, classname}) => {
     return (
-        <img src={src} className={classname}/>
+        <img src={src} className={classname} alt=''/>
     )
 }
 

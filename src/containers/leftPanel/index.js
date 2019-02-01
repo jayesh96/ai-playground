@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import CodeEditor from '../../components/codeEditor';
-import {Flex, Box} from 'reflexbox';
+import {Flex} from 'reflexbox';
 import {connect} from 'react-redux';
 import {saveCode} from './actions';
 import Tabs from '../../components/tabs';

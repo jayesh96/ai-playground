@@ -5,7 +5,7 @@ AI Playground is a ReactJs project which uses React v16 ,Redux and webpack .
 
 ### Installation
 
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
+AI-Playground requires [Node.js](https://nodejs.org/) v4+ to run.
 
 Install the dependencies and devDependencies and start the server.
 

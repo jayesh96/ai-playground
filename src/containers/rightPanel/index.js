@@ -17,13 +17,13 @@ class RightPanel extends Component {
     this.messageSubmit = this.messageSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps, prevState) {
+  componentWillReceiveProps(nextProps) {
     this.setState({code: nextProps.code});
   }
 
   messageSubmit(e) {
     var code = e.keyCode ? e.keyCode : e.which;
-    if (code == 13) {
+    if (code === 13) {
       this.setState({
         messageCount: this.state.messageCount + 1,
         message: '',
@@ -38,12 +38,14 @@ class RightPanel extends Component {
     var regex = /^[0-9]+$/;
     try {
       if (message.match(regex)) {
+        // eslint-disable-next-line
         let value = await eval(`(${code})(${message})`);
         this.props.addMessage(value);
         this.setState({loading: false});
         return value;
       } else {
         const _message = message.replace(/"/g, "'");
+        // eslint-disable-next-line
         let value = await eval(`(${code})("${_message}")`);
         this.props.addMessage(value);
         this.setState({loading: false});
