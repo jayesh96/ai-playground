@@ -1,0 +1,35 @@
+
+.messageBox{
+    height:72px;
+    width: 528px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.08);
+    background-color: #1f1f1f;
+    margin: 8px auto
+}
+
+.Rectangle-3 {
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    background-color: #1f1f1f;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left:33px;
+}
+.Type-message-here {
+    padding: 8px 16px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: QuickSand;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #a9a9a9;
+}
+
