@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import "./styles.css"
 
 export const Tabs = ({tabsCount,activeTab, changeActiveTab}) => {
     return (
@@ -12,7 +13,8 @@ export const Tabs = ({tabsCount,activeTab, changeActiveTab}) => {
                   activeTab === index ? 'activeTab' : '',
                 )}
                 onClick={()=>changeActiveTab(index)}>
-                <div className={'tabsButtonText'}>{tab}</div>
+                <div className={'tabsButtonText'}>{tab} <span style={{display:"none"}}>X</span></div>
+
               </button>
             );
           })

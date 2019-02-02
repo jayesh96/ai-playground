@@ -1,6 +1,5 @@
 class Jayesh {
   getValue(params) {
-    console.log(params,"-----.")
     const url = `https://rest.coinapi.io/v1/exchangerate/BTC?apikey=20E9EFAC-2D10-4307-BF4E-EC5B6C605341`;
     return fetch(url)
       .then(resp => resp.json())
