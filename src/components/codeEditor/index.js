@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
 import MonacoEditor from 'react-monaco-editor';
+const options = {
+  selectOnLineNumbers: true,
+  roundedSelection: false,
+  readOnly: false,
+  cursorStyle: 'line',
+  automaticLayout: true,
+};
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -9,9 +16,9 @@ class CodeEditor extends Component {
     };
   }
 
-  onChange = (newValue, e) => {
-    this.setState({[`Tab${this.props.activeTab}`]:newValue});
-    this.props.onCodeChange(newValue);
+  onChange = (code, e) => {
+    // this.setState({[`Tab${this.props.activeTab}`]:newValue});
+    this.props.onCodeChange(code,this.props.activeTab);
   };
 
   editorDidMount = (editor) => {
@@ -29,20 +36,13 @@ class CodeEditor extends Component {
   };
 
   render() {
-    const {code} = this.state;
-    const options = {
-      selectOnLineNumbers: true,
-      roundedSelection: false,
-      readOnly: false,
-      cursorStyle: 'line',
-      automaticLayout: true,
-    };
+    const {code} = this.props;
     return (
       <div style={{height: '100vH'}}>
         <MonacoEditor
           language="javascript"
           theme="vs-dark"
-          value={this.state[`Tab${this.props.activeTab}`]||code}
+          value={code}
           options={options}
           onChange={this.onChange}
           editorDidMount={this.editorDidMount}

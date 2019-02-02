@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3",
     "@google-cloud/translate": "^2.1.3",
     "classnames": "^2.2.6",
     "dotenv": "^6.2.0",
+    "gh-pages": "^2.0.1",
     "immutable": "^4.0.0-rc.12",
     "monaco-editor-webpack-plugin": "^1.6.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "react-monaco-editor": "latest",
     "react-redux": "^6.0.0",
+    "react-scripts": "2.1.3",
     "redux": "^4.0.1",
     "reflexbox": "^3.0.1",
     "safe-eval": "^0.4.1"
@@ -21,11 +22,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "https://jayesh96.github.io/ai-playground",
   "browserslist": [
     ">0.2%",
     "not dead",
