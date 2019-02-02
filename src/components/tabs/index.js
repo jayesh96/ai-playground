@@ -6,6 +6,7 @@ export const Tabs = ({tabsCount,activeTab, changeActiveTab}) => {
         tabsCount.map((tab, index) => {
             return (
               <button
+              key={index}
                 className={classnames(
                   'tabsButton',
                   activeTab === index ? 'activeTab' : '',
