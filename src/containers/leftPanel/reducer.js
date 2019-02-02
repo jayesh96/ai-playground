@@ -7,8 +7,8 @@ const initialState = Map({
     tab:0,
   },
   active:{
-    code:"",
-    tab:""
+    code:`// Write your code here \nfunction respond(text){  \n return jayesh.translate(text)\n}`,
+    tab:0
   }
 });
 

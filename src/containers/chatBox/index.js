@@ -11,6 +11,7 @@ class ChatBox extends Component{
             <div className={'chatBox'} id='chat-box'>
           {code.length > 0 && messageCount > 0 ? (
             <Fragment>
+            <ul style={{padding:'0px'}}>
               {messages.map((msg, index) => {
                 return (
                   <div
@@ -29,14 +30,15 @@ class ChatBox extends Component{
                       height={'24px'}
                       style={{borderRadius: '50%'}}
                     />
-                    <div className={
+                    <li className={
                       index % 2 === 0
                         ? 'chats-msg'
                         : classnames('chats-msg', 'chats-msg-right')
-                    }>{msg.message}</div>
+                    }>{msg.message}</li>
                   </div>
                 );
               })}
+              </ul>
             </Fragment>
           ) : null}
           {loading ? (

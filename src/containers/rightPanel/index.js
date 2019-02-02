@@ -10,7 +10,7 @@ class RightPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: "",
+      code: props.code || "",
       message: "",
       messageCount: 0,
       loading: false
@@ -78,7 +78,8 @@ class RightPanel extends Component {
         />
         <div className={"messageBox"}>
           <div className={"Rectangle-3"}>
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "100%",whiteSpace: 'nowrap',overflow: 'hidden',textOverflow: 'ellipsis'
+           }}>
               <input
                 type="text"
                 disabled={loading ? true : false}
@@ -99,6 +100,7 @@ class RightPanel extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state, "---->");
   return {
     code: state.saveCode.get("active")["code"],
     messages: state.addMessage
