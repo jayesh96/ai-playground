@@ -4,7 +4,8 @@ class Jayesh {
     return fetch(url)
       .then((resp) => resp.json())
       .then((data) => {
-        return url;
+        console.log(data,"---->")
+        return data['asset_id_base'];
       })
   }
 }

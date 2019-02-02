@@ -50,19 +50,19 @@ class RightPanel extends Component {
         // eslint-disable-next-line
         let value = await eval(`(${code})(${message})`);
         this.props.addMessage(value);
-        this.setState({ loading: false });
+        await this.setState({ loading: false });
         return value;
       } else {
         const _message = message.replace(/"/g, "'");
         // eslint-disable-next-line
         let value = await eval(`(${code})("${_message}")`);
         this.props.addMessage(value);
-        this.setState({ loading: false });
+        await this.setState({ loading: false });
         return value;
       }
     } catch (err) {
       this.props.addMessage("Oops! " + err.toString());
-      this.setState({ loading: false });
+      await this.setState({ loading: false });
       return "NIL";
     }
   }
