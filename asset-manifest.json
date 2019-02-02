@@ -1,7 +1,7 @@
 {
   "main.css": "/ai-playground/static/css/main.3bad7d79.chunk.css",
-  "main.js": "/ai-playground/static/js/main.e7bb77d5.chunk.js",
-  "main.js.map": "/ai-playground/static/js/main.e7bb77d5.chunk.js.map",
+  "main.js": "/ai-playground/static/js/main.941cbeb2.chunk.js",
+  "main.js.map": "/ai-playground/static/js/main.941cbeb2.chunk.js.map",
   "static/css/1.4712d2b7.chunk.css": "/ai-playground/static/css/1.4712d2b7.chunk.css",
   "static/js/1.174f3aa0.chunk.js": "/ai-playground/static/js/1.174f3aa0.chunk.js",
   "static/js/1.174f3aa0.chunk.js.map": "/ai-playground/static/js/1.174f3aa0.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.4712d2b7.chunk.css.map": "/ai-playground/static/css/1.4712d2b7.chunk.css.map",
   "static/css/main.3bad7d79.chunk.css.map": "/ai-playground/static/css/main.3bad7d79.chunk.css.map",
   "index.html": "/ai-playground/index.html",
-  "precache-manifest.6fd7724c2c0229870a1fb1d15aa3fece.js": "/ai-playground/precache-manifest.6fd7724c2c0229870a1fb1d15aa3fece.js",
+  "precache-manifest.d59b4be0be243e3d32232ac5a31e1ef2.js": "/ai-playground/precache-manifest.d59b4be0be243e3d32232ac5a31e1ef2.js",
   "service-worker.js": "/ai-playground/service-worker.js"
 }
