@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/ai-playground/static/js/runtime~main.2d04c133.js"
   },
   {
-    "revision": "27d24402aec838eb5b91",
-    "url": "/ai-playground/static/js/main.27d24402.chunk.js"
+    "revision": "c01380d52c9765d8ee57",
+    "url": "/ai-playground/static/js/main.c01380d5.chunk.js"
   },
   {
     "revision": "174f3aa0e24be13448b0",
     "url": "/ai-playground/static/js/1.174f3aa0.chunk.js"
   },
   {
-    "revision": "27d24402aec838eb5b91",
-    "url": "/ai-playground/static/css/main.3bad7d79.chunk.css"
+    "revision": "c01380d52c9765d8ee57",
+    "url": "/ai-playground/static/css/main.c136244c.chunk.css"
   },
   {
     "revision": "174f3aa0e24be13448b0",
     "url": "/ai-playground/static/css/1.4712d2b7.chunk.css"
   },
   {
-    "revision": "b64b7511af4638b1e393bf67b846a4ca",
+    "revision": "ac57eafeb317621e5afde38854aa4fb9",
     "url": "/ai-playground/index.html"
   }
 ];
