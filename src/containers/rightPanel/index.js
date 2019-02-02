@@ -87,7 +87,7 @@ class RightPanel extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {code: state.saveCode.get('code'), messages: state.addMessage};
+  return {code: state.saveCode.get('active')['code'], messages: state.addMessage};
 };
 
 const mapDispatchToProps = (dispatch) => {
