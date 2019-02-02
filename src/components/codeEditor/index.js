@@ -8,6 +8,7 @@ const options = {
   automaticLayout: true,
 };
 
+const defaultCode="// code changed! \n function add(j){return j+j}"
 class CodeEditor extends Component {
   constructor(props) {
     super(props);
@@ -36,13 +37,13 @@ class CodeEditor extends Component {
   };
 
   render() {
-    const {code} = this.props;
+    const {code,activeTab} = this.props;
     return (
       <div style={{height: '100vH'}}>
         <MonacoEditor
           language="javascript"
           theme="vs-dark"
-          value={code}
+          value={code.length===0 && activeTab===0?defaultCode:code}
           options={options}
           onChange={this.onChange}
           editorDidMount={this.editorDidMount}
