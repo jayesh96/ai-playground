@@ -8,7 +8,7 @@ class ChatBox extends Component{
     render(){
         const {code,messageCount,messages,loading} = this.props
         return(
-            <div className={'chatBox'}>
+            <div className={'chatBox'} id='chat-box'>
           {code.length > 0 && messageCount > 0 ? (
             <Fragment>
               {messages.map((msg, index) => {

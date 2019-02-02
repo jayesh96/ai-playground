@@ -21,7 +21,7 @@ class RightPanel extends Component {
     this.setState({ code: nextProps.code });
   }
 
-  messageSubmit(e) {
+  async messageSubmit(e) {
     var code = e.keyCode ? e.keyCode : e.which;
     if (code === 13) {
       if (this.state.code.length === 0) {
@@ -34,7 +34,11 @@ class RightPanel extends Component {
           loading: true
         });
         this.props.addMessage(e.target.value);
-        this.evaluateCode(this.state.code, e.target.value);
+        await this.evaluateCode(this.state.code, e.target.value);
+        let scrollHeight = document.getElementById("chat-box");
+        scrollHeight.scrollTop = scrollHeight.scrollHeight;
+
+
       }
     }
   }

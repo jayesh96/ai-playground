@@ -29,7 +29,7 @@ class LeftPanel extends Component {
   }
 
   changeActiveTab(tabIndex) {
-    this.setState({ activeTab: tabIndex });
+    this.setState({ activeTab: tabIndex,isCodeUpdated:false });
   }
 
   applyChangeButtonClick() {
