@@ -6,7 +6,6 @@ import ChatBox from "../chatBox";
 import "../../scripts/main";
 const regex = /^[0-9]+$/;
 
-
 class RightPanel extends Component {
   constructor(props) {
     super(props);

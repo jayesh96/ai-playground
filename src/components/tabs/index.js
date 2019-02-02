@@ -13,7 +13,7 @@ export const Tabs = ({tabsCount,activeTab, changeActiveTab}) => {
                   activeTab === index ? 'activeTab' : '',
                 )}
                 onClick={()=>changeActiveTab(index)}>
-                <div className={'tabsButtonText'}>{tab} <span style={{display:"none"}}>X</span></div>
+                <div className={'tabsButtonText'} >{tab} <span style={{display:"none"}}>X</span></div>
 
               </button>
             );
