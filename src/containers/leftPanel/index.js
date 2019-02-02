@@ -75,6 +75,7 @@ class LeftPanel extends Component {
       code: "",
       tab: "0"
     };
+    
     return (
       <Flex column>
         <div className={"tabs"}>

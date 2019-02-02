@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { addMessage } from "./actions";
 import ChatBox from "../chatBox";
 import "../../scripts/main";
+const regex = /^[0-9]+$/;
+
 
 class RightPanel extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ class RightPanel extends Component {
     if (code === 13) {
       if (this.state.code.length === 0) {
         alert("Please Pass a function");
-        this.setState({message:''})
+        this.setState({ message: "" });
       } else {
         this.setState({
           messageCount: this.state.messageCount + 1,
@@ -37,32 +39,29 @@ class RightPanel extends Component {
         await this.evaluateCode(this.state.code, e.target.value);
         let scrollHeight = document.getElementById("chat-box");
         scrollHeight.scrollTop = scrollHeight.scrollHeight;
-
-
       }
     }
   }
 
   async evaluateCode(code, message) {
-    var regex = /^[0-9]+$/;
     try {
       if (message.match(regex)) {
         // eslint-disable-next-line
         let value = await eval(`(${code})(${message})`);
         this.props.addMessage(value);
-        await this.setState({ loading: false });
+        this.setState({ loading: false });
         return value;
       } else {
         const _message = message.replace(/"/g, "'");
         // eslint-disable-next-line
         let value = await eval(`(${code})("${_message}")`);
         this.props.addMessage(value);
-        await this.setState({ loading: false });
+        this.setState({ loading: false });
         return value;
       }
     } catch (err) {
       this.props.addMessage("Oops! " + err.toString());
-      await this.setState({ loading: false });
+      this.setState({ loading: false });
       return "NIL";
     }
   }

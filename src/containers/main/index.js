@@ -18,9 +18,7 @@ class Main extends Component {
               <LeftPanel/> 
             </Box>
             <Box w={3 / 5} className={'bot'}>
-           {
             <RightPanel/>
-           }
             </Box>
           </Flex>
         </Box>
