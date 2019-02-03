@@ -1,43 +1,42 @@
-
-.messageBox{
-    height: 15%;
-    width: 90%;
-    position: absolute;
-    top: 62%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 8%;
-    background: #1f1f1f;
-    border-radius: 8px;
-    padding-right: 0;
-    -webkit-box-shadow: 0 0 20px 5px rgba(0,0,0,.2);
-    box-shadow: 0 0 20px 5px rgba(0,0,0,.2);
-    max-width: 600px;
+.messageBox {
+  padding: 5px 10px;
+  height: 15%;
+  width: 90%;
+  position: absolute;
+  top: 62%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 8%;
+  background: #1f1f1f;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
 }
 
 .Rectangle-3 {
-    border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
-    background-color: #1f1f1f;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-left:33px;
-}
-.Type-message-here {
-    padding: 8px 16px;
-    background-color: inherit;
-    border: none;
-    outline: none;
-    width: 100%;
-    font-family: QuickSand;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #a9a9a9;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  background-color: #1f1f1f;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 33px;
 }
 
+.Type-message-here {
+  padding: 8px 16px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: QuickSand;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #a9a9a9;
+}

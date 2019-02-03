@@ -22,6 +22,11 @@ class RightPanel extends Component {
     this.setState({ code: nextProps.code });
   }
 
+  componentDidUpdate(){
+    const objDiv = document.getElementById('chat-box');
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }
+  
   async messageSubmit(e) {
     var code = e.keyCode ? e.keyCode : e.which;
     if (code === 13) {
@@ -46,9 +51,6 @@ class RightPanel extends Component {
       if (message.match(regex)) {
         // eslint-disable-next-line
         let value = await eval(`(${code})(${message})`);
-
-        await new Promise(resolve => setTimeout(resolve, 5000));
-
         this.props.addMessage(value);
         this.setState({ loading: false });
         return value;
@@ -91,6 +93,7 @@ class RightPanel extends Component {
             >
               <input
                 type="text"
+                autoFocus
                 disabled={loading ? true : false}
                 value={message}
                 onChange={e => {
