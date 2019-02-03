@@ -34,10 +34,9 @@ class RightPanel extends Component {
           message: "",
           loading: true
         });
+
         this.props.addMessage(e.target.value);
         await this.evaluateCode(this.state.code, e.target.value);
-        let scrollHeight = document.getElementById("chat-box");
-        scrollHeight.scrollTop = scrollHeight.scrollHeight;
       }
     }
   }
@@ -47,6 +46,9 @@ class RightPanel extends Component {
       if (message.match(regex)) {
         // eslint-disable-next-line
         let value = await eval(`(${code})(${message})`);
+
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
         this.props.addMessage(value);
         this.setState({ loading: false });
         return value;
@@ -54,6 +56,7 @@ class RightPanel extends Component {
         const _message = message.replace(/"/g, "'");
         // eslint-disable-next-line
         let value = await eval(`(${code})("${_message}")`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
         this.props.addMessage(value);
         this.setState({ loading: false });
         return value;
@@ -78,8 +81,14 @@ class RightPanel extends Component {
         />
         <div className={"messageBox"}>
           <div className={"Rectangle-3"}>
-            <div style={{ width: "100%",whiteSpace: 'nowrap',overflow: 'hidden',textOverflow: 'ellipsis'
-           }}>
+            <div
+              style={{
+                width: "100%",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis"
+              }}
+            >
               <input
                 type="text"
                 disabled={loading ? true : false}
@@ -100,7 +109,6 @@ class RightPanel extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state, "---->");
   return {
     code: state.saveCode.get("active")["code"],
     messages: state.addMessage

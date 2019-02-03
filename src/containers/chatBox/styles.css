@@ -10,15 +10,20 @@
 }
 
 .chatBox {
-  width: 528px;
-  height: 392px;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.08);
-  background-color: #1f1f1f;
-  margin: 0 auto;
+  height: 55%;
+  width: 90%;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #1f1f1f;
+  border-radius: 8px;
+  padding: 5px 10px;
   overflow: auto;
-  display: flex;
-  flex-direction: column;
+  -webkit-box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
 }
 .chat-msg-right {
   margin-right: 20px;
@@ -27,7 +32,7 @@
   height: 100%;
   width: auto;
   list-style-type: none;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-bottom: 20px;
   border-radius: 16px;
   padding: 10px;
@@ -39,6 +44,7 @@
   line-height: normal;
   letter-spacing: normal;
   color: #d3d3d3;
+  max-width: 400px;
   background-color: #404040;
 }
 .chats-msg-right {

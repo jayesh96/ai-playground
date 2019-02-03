@@ -13,12 +13,13 @@ class CodeEditor extends Component {
 
   render() {
     const {code,activeTab} = this.props;
+    console.log(code,"----->")
     return (
       <div style={{height: '100vH'}}>
         <MonacoEditor
           language="javascript"
           theme="vs-dark"
-          value={code.length===0 && activeTab===0?defaultCode:code}
+          value={code}
           options={options}
           onChange={this.onChange}
           editorDidMount={this.editorDidMount}

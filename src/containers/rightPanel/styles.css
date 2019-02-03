@@ -1,11 +1,19 @@
 
 .messageBox{
-    height:72px;
-    width: 528px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.08);
-    background-color: #1f1f1f;
-    margin: 8px auto
+    height: 15%;
+    width: 90%;
+    position: absolute;
+    top: 62%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 8%;
+    background: #1f1f1f;
+    border-radius: 8px;
+    padding-right: 0;
+    -webkit-box-shadow: 0 0 20px 5px rgba(0,0,0,.2);
+    box-shadow: 0 0 20px 5px rgba(0,0,0,.2);
+    max-width: 600px;
 }
 
 .Rectangle-3 {

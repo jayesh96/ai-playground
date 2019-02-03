@@ -3,7 +3,7 @@ import { Map } from "immutable";
 
 const initialState = Map({
   Tab0:{
-    code:"",
+    code:`// Write your code here \nfunction respond(text){  \n return jayesh.translate(text)\n}`,
     tab:0,
   },
   active:{
